@@ -90,12 +90,12 @@
 				A76537D71CBB1452004C283E /* ViewController.swift */,
 				A76537D91CBB1452004C283E /* Main.storyboard */,
 				A76537DC1CBB1452004C283E /* Assets.xcassets */,
-				A76537DE1CBB1452004C283E /* LaunchScreen.storyboard */,
 				A76537E11CBB1452004C283E /* Info.plist */,
 				A76537E71CBB26E5004C283E /* RatingControl.swift */,
 				A7EB20701CBB4D4E0058480B /* Meal.swift */,
 				A7EB20881CBB50990058480B /* MealTableViewCell.swift */,
 				A7EB208A1CBB51D40058480B /* MealTableViewController.swift */,
+				A76537DE1CBB1452004C283E /* LaunchScreen.storyboard */,
 			);
 			path = W5EFoodTracker;
 			sourceTree = "<group>";
