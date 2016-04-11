@@ -10,6 +10,7 @@ import UIKit
 
 class MealTableViewController: UITableViewController {
   var meals = [Meal]()
+  var dataHandler = DataHandler()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -17,26 +18,11 @@ class MealTableViewController: UITableViewController {
     // Use the edit button item provided by the table view controller.
     navigationItem.leftBarButtonItem = editButtonItem()
     
-    // Load any saved meals, otherwise load sample data.
-    if let savedMeals = loadMeals() {
-      meals += savedMeals
-    } else {
-      // Load the sample data.
-      loadSampleMeals()
+    dataHandler.getData { (meals) in
+      self.meals = meals
+      self.tableView.reloadData();
     }
-  }
-  
-  func loadSampleMeals() {
-    let photo1 = UIImage(named: "meal1")!
-    let meal1 = Meal(name: "Caprese Salad", photo: photo1, rating: 4)!
     
-    let photo2 = UIImage(named: "meal2")!
-    let meal2 = Meal(name: "Chicken and Potatoes", photo: photo2, rating: 5)!
-    
-    let photo3 = UIImage(named: "meal3")!
-    let meal3 = Meal(name: "Pasta with Meatballs", photo: photo3, rating: 3)!
-    
-    meals += [meal1, meal2, meal3]
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,7 +45,7 @@ class MealTableViewController: UITableViewController {
     if editingStyle == .Delete {
       // Delete the row from the data source
       meals.removeAtIndex(indexPath.row)
-      saveMeals()
+      dataHandler.saveMeals(meals)
       tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     } else if editingStyle == .Insert {
       // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -72,15 +58,17 @@ class MealTableViewController: UITableViewController {
         // Update an existing meal.
         meals[selectedIndexPath.row] = meal
         tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+        dataHandler.saveMeal(meal)
       }
       else {
         // Add a new meal.
         let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
         meals.append(meal)
         tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+        dataHandler.saveMeal(meal)
       }
       // Save the meals.
-      saveMeals()
+      dataHandler.saveMeals(meals)
     }
   }
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -96,15 +84,7 @@ class MealTableViewController: UITableViewController {
       print("Adding new meal.")
     }
   }
-  func loadMeals() -> [Meal]? {
-    return NSKeyedUnarchiver.unarchiveObjectWithFile(Meal.ArchiveURL.path!) as? [Meal]
-  }
-  
-  func saveMeals() {
-    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path!)
-    if !isSuccessfulSave {
-      print("Failed to save meals...")
-    }
-  }
+
+
 
 }

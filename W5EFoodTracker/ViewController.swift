@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     return true
   }
   
-  func textFieldDidBeginEditing(textField: UITextField) {
+  func textFieldDidEndEditing(textField: UITextField) {
     mealNameLabel.text = textField.text
         saveButton.enabled = false
     checkValidMealName()
