@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A75442291CBC024900EE6F99 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75442281CBC024900EE6F99 /* LogInViewController.swift */; };
 		A75442321CBC0F1A00EE6F99 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75442311CBC0F1A00EE6F99 /* DataHandler.swift */; };
+		A75442341CBC67F400EE6F99 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75442331CBC67F400EE6F99 /* ProfileViewController.swift */; };
 		A76537D61CBB1452004C283E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76537D51CBB1452004C283E /* AppDelegate.swift */; };
 		A76537D81CBB1452004C283E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76537D71CBB1452004C283E /* ViewController.swift */; };
 		A76537DB1CBB1452004C283E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76537D91CBB1452004C283E /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		3DC9A04AD0AD3BD1C0F2B9A0 /* Pods-W5EFoodTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-W5EFoodTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-W5EFoodTracker/Pods-W5EFoodTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		A75442281CBC024900EE6F99 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A75442311CBC0F1A00EE6F99 /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		A75442331CBC67F400EE6F99 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A76537D21CBB1452004C283E /* W5EFoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = W5EFoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A76537D51CBB1452004C283E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A76537D71CBB1452004C283E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				A76537D71CBB1452004C283E /* ViewController.swift */,
 				A75442281CBC024900EE6F99 /* LogInViewController.swift */,
+				A75442331CBC67F400EE6F99 /* ProfileViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				A75442291CBC024900EE6F99 /* LogInViewController.swift in Sources */,
 				A75442321CBC0F1A00EE6F99 /* DataHandler.swift in Sources */,
 				A76537D61CBB1452004C283E /* AppDelegate.swift in Sources */,
+				A75442341CBC67F400EE6F99 /* ProfileViewController.swift in Sources */,
 				A7EB208B1CBB51D40058480B /* MealTableViewController.swift in Sources */,
 				A7EB20891CBB50990058480B /* MealTableViewCell.swift in Sources */,
 			);

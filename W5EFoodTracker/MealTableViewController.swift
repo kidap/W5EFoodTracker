@@ -9,8 +9,14 @@
 import UIKit
 
 class MealTableViewController: UITableViewController {
-  var meals = [Meal]()
+
   var dataHandler = DataHandler()
+  
+  var meals = [Meal](){
+    didSet{
+      self.tableView.reloadData();
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,7 +26,9 @@ class MealTableViewController: UITableViewController {
     
     dataHandler.getData { (meals) in
       self.meals = meals
-      self.tableView.reloadData();
+      dispatch_async(dispatch_get_main_queue(), {
+        self.tableView.reloadData();
+      })
     }
     
   }
@@ -33,7 +41,7 @@ class MealTableViewController: UITableViewController {
     // Table view cells are reused and should be dequeued using a cell identifier.
     let cellIdentifier = "MealTableViewCell"
     let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MealTableViewCell
-
+    
     let meal = meals[indexPath.row]
     cell.nameLabel.text = meal.name
     cell.photoImageView.image = meal.photo
@@ -74,7 +82,7 @@ class MealTableViewController: UITableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "ShowDetail" {
       let mealDetailViewController = segue.destinationViewController as! ViewController
-        if let selectedMealCell = sender as? MealTableViewCell {
+      if let selectedMealCell = sender as? MealTableViewCell {
         let indexPath = tableView.indexPathForCell(selectedMealCell)!
         let selectedMeal = meals[indexPath.row]
         mealDetailViewController.meal = selectedMeal
@@ -84,7 +92,11 @@ class MealTableViewController: UITableViewController {
       print("Adding new meal.")
     }
   }
-
-
-
+  
+  @IBAction func profileButtonTapped(sender: AnyObject) {
+    
+    
+  }
+  
+  
 }
